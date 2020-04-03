@@ -7,8 +7,8 @@ describe('my-app App', () => {
     page = new AppPage();
   });
 
-  it('should display title', () => {
+  it('should display company name', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Products');
+    expect(page.getParagraphText()).toEqual('Company Name');
   });
 });

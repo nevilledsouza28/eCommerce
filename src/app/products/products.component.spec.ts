@@ -1,5 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { ProductsComponent } from './products.component';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { FilterListBasedOnKeyValuePipe } from '../shared/pipes/filter-list.pipe';
 
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
@@ -7,7 +10,8 @@ describe('ProductsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductsComponent ]
+      imports: [FormsModule, TypeaheadModule.forRoot()],
+      declarations: [ProductsComponent, FilterListBasedOnKeyValuePipe]
     })
     .compileComponents();
   }));

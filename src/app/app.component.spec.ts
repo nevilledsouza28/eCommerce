@@ -1,11 +1,25 @@
 import { TestBed, async } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { ProductsComponent } from './products/products.component';
+import { FooterComponent } from './footer/footer.component';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { FilterListBasedOnKeyValuePipe } from './shared/pipes/filter-list.pipe';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        FormsModule,
+        TypeaheadModule.forRoot()
+      ],
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent,
+        ProductsComponent,
+        FooterComponent,
+        FilterListBasedOnKeyValuePipe
       ],
     }).compileComponents();
   }));
@@ -16,16 +30,4 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   }));
 
-  it(`should have as title 'app'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Products');
-  }));
-
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Products');
-  }));
 });

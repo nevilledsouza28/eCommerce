@@ -16,7 +16,7 @@
         <div class="list-group-item">
           <span class="badge badge-warning float-right">{{item.type | uppercase}}</span>
           <span class="badge badge-danger badge-pill position-absolute" *ngIf="item.isSale" style="top:150px; left:25px;">On Sale</span>
-          <img src="../assets/images/products/{{item.productImage}}" class="img-fluid mx-auto d-block" alt="{{item.productName}}">
+          <img src="./assets/images/products/{{item.productImage}}" class="img-fluid mx-auto d-block" alt="{{item.productName}}">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">{{item.productName}}</h5>
             <small>{{item.price}}</small>

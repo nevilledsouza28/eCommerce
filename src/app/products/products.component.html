@@ -1,31 +1,27 @@
-<div style="padding-top:100px;">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <img src="../assets/images/products/Product_1.jpeg" class="img-fluid mx-auto d-block" alt="img1">
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <img src="../assets/images/products/Product_2.jpeg" class="img-fluid mx-auto d-block" alt="img2">
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <img src="../assets/images/products/Product_3.jpeg" class="img-fluid mx-auto d-block" alt="img3">
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <img src="../assets/images/products/Product_4.jpeg" class="img-fluid mx-auto d-block" alt="img4">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <img src="../assets/images/products/Product_5.jpeg" class="img-fluid mx-auto d-block" alt="img5">
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <img src="../assets/images/products/Product_6.jpeg" class="img-fluid mx-auto d-block" alt="img6">
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <img src="../assets/images/products/Product_7.jpeg" class="img-fluid mx-auto d-block" alt="img7">
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <img src="../assets/images/products/Product_8.jpeg" class="img-fluid mx-auto d-block" alt="img8">
+<div class="container-fluid">
+  <nav class="navbar navbar-light bg-light">
+    <input [(ngModel)]="selected"
+    [typeahead]="productType"
+    (typeaheadNoResults)="typeaheadNoResults($event)"
+    class="form-control"
+    placeholder="Search..">
+  </nav>
+  <div class="alert alert-secondary" *ngIf="noResult">
+    No results found for Product Type
+  </div>
+  <div class="row">
+    
+    <div class="col-12 col-sm-6 col-md-4 col-lg-4" *ngFor="let item of (productList | filterListBasedOnKeyValue: 'type':selected)">
+      <div class="list-group">
+        <div class="list-group-item">
+          <span class="badge badge-warning float-right">{{item.type | uppercase}}</span>
+          <span class="badge badge-danger badge-pill position-absolute" *ngIf="item.isSale" style="top:150px; left:25px;">On Sale</span>
+          <img src="../assets/images/products/{{item.productImage}}" class="img-fluid mx-auto d-block" alt="{{item.productName}}">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{item.productName}}</h5>
+            <small>{{item.price}}</small>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,0 +1,28 @@
+
+.alert{
+    border-radius: 0px;
+}
+.form-control{
+    border-radius: 0px;
+}
+.dropdown-menu{
+    padding: 0px;
+    margin: 0px;
+    border-radius: 0px;
+}
+.dropdown-item{
+    color: #4285F4 !important;
+    background-color: transparent !important;
+    padding: 5px 10px;
+}
+.app-sale-text{
+    top:150px; 
+    left:15px;
+}
+.app-product-name{
+    display: inline-block;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
